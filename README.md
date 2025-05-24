@@ -1,4 +1,4 @@
-# ArXiv Paper summariser
+# ArXiv Paper Email Summaries
 
 This repository produces daily email updates of yesterday's arXiv papers that use a specific selection of keywords, using a summary from Gemini.
 
