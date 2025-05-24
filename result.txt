@@ -1,28 +1,101 @@
-arXiv URL: https://arxiv.org/abs/2410.08003
-Summary: The authors developed COMET, a new sparse neural network architecture inspired by biological neural systems, to address limitations of existing sparse networks in learning multiple tasks efficiently.  COMET uses random projections instead of trainable gating functions, leading to faster learning and better generalization across various tasks.
-
-
-arXiv URL: https://arxiv.org/abs/2410.04241
-Summary: The authors introduced a new question answering task that incorporates source citations for questions with multiple valid answers, creating five new datasets and evaluation metrics to address this challenge; their results from several baseline models highlight the difficulty and importance of this task for building more trustworthy QA systems.
-
-
-arXiv URL: https://arxiv.org/abs/2406.16779
-Summary: The authors investigated how input order and emphasis affect large language models' reading comprehension performance, testing nine models on three datasets.  They found that presenting the context before the question significantly improved accuracy (up to 36%), especially for questions requiring external knowledge, with simple context emphasis techniques proving most effective.
-
-
-arXiv URL: https://arxiv.org/abs/2402.00123
-Summary: The authors compared language model evaluation using expert-designed templates versus naturally occurring text, finding that the two methods yielded different model rankings and scores, with template-free methods showing lower accuracy but a more expected relationship between perplexity and accuracy.  The differences were particularly notable between general and domain-specific models.
-
-
-arXiv URL: https://arxiv.org/abs/2401.18001
-Summary: The authors evaluated 15 question-answering systems across five datasets using a comprehensive set of criteria to understand their robustness, consistency, and handling of conflicting information.  Their results revealed unexpected relationships between these factors, highlighting the significant negative impact of combining conflicting knowledge and noisy data on system performance.
-
-
-arXiv URL: https://arxiv.org/abs/2310.10571
-Summary: The authors investigated whether adding irrelevant demographic information to biomedical questions affected the answers given by two types of question answering systems (knowledge graph-grounded and text-based).  They found that irrelevant demographic details caused significant changes in the answers provided by both systems, highlighting fairness concerns in biomedical AI.
-
-
-arXiv URL: https://arxiv.org/abs/2310.10583
-Summary: The authors argue that current language models are unreliable, especially for low-resource languages, and propose building models that cite their sources to improve trustworthiness.  They discuss the benefits and challenges of this approach, aiming to stimulate discussion on improving language model development.
-
-
+<html><body style='font-family:Arial, sans-serif;'><h2>Daily arXiv Summary for 2025-05-23 to 2025-05-24</h2><h3>Computer Vision</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/1905.07844v1'>Implications of Computer Vision Driven Assistive Technologies Towards
+  Individuals with Visual Impairment</a></td><td>The authors examined the positive and negative impacts of computer vision assistive technologies for visually impaired people.  They found that while such technologies improve independence, concerns about bias, privacy, and practical usefulness need to be addressed by researchers and developers.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/1310.0319v3'>Second Croatian Computer Vision Workshop (CCVW 2013)</a></td><td>The abstract describes the proceedings of the Second Croatian Computer Vision Workshop (CCVW 2013), held in Zagreb to showcase advancements in computer vision research.  It doesn't present specific research results from individual papers within the workshop itself, only detailing the event's organization and location.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/1707.03720v1'>Multiband NFC for High-Throughput Wireless Computer Vision Sensor
+  Network</a></td><td>The authors developed a new near-field communication (NFC) system using multiple frequency bands to improve data transfer speed for computer vision applications like AR/VR.  Their results demonstrate a high-throughput NFC system suitable for vision sensors.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/1910.13796v1'>Deep Learning vs. Traditional Computer Vision</a></td><td>This paper compares traditional computer vision techniques and deep learning, arguing that knowledge of both is valuable.  The authors review hybrid methods combining these approaches, showing improved performance in areas where deep learning alone is insufficient, such as panoramic and 3D vision.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/1808.03998v1'>Enhancing camera surveillance using computer vision: a research note</a></td><td>The authors investigated the potential of computer vision to assist police in managing their growing network of surveillance cameras, focusing on live monitoring and video summarization.  They found that while the technology is becoming available, its impact on law enforcement hasn't been adequately studied or understood.
+</td></tr></table><br><h3>Gpu</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/2502.09541v1'>Vortex: Overcoming Memory Capacity Limitations in GPU-Accelerated
+  Large-Scale Data Analytics</a></td><td>The authors developed Vortex, a GPU-accelerated data analytics framework that overcomes GPU memory limitations by efficiently routing data between multiple GPUs, leveraging underutilized resources in other GPUs.  This resulted in a 5.7x performance improvement over a state-of-the-art GPU system and a 2.5x price-performance improvement over a CPU-based system.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2212.07936v1'>A Study on the Intersection of GPU Utilization and CNN Inference</a></td><td>The authors investigated GPU utilization during convolutional neural network (CNN) inference, finding that many existing CNNs underutilize GPUs.  They explored using GPU utilization as a metric within neural architecture search to design more efficient networks, suggesting this could improve inference speed and resource use.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2411.01142v1'>NEO: Saving GPU Memory Crisis with CPU Offloading for Online LLM
+  Inference</a></td><td>To improve the efficiency of large language model (LLM) inference, the authors developed NEO, a system that offloads some computation from the GPU to the CPU.  This increased throughput by up to 7.5x on some GPUs while maintaining low latency.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2503.11901v2'>Characterizing GPU Resilience and Impact on AI/HPC Systems</a></td><td>The authors analyzed two and a half years of GPU failure data from a large-scale AI system to assess component reliability and its impact on system availability.  Their findings revealed that GPU memory is significantly more reliable than other components, particularly the GSP, and that while NVLink errors occurred, robust error handling mitigated their impact on user jobs; however, significant overprovisioning (5-20%) is needed to account for current GPU failure rates.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2104.00828v1'>Daisen: A Framework for Visualizing Detailed GPU Execution</a></td><td>To help GPU hardware designers improve performance, the authors developed Daisen, a framework that collects and visualizes GPU simulator traces.  Their evaluation showed Daisen effectively helped designers identify performance bottlenecks and areas for improvement.
+</td></tr></table><br><h3>Lmm</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/2312.02896v2'>BenchLMM: Benchmarking Cross-style Visual Capability of Large Multimodal
+  Models</a></td><td>The authors created BenchLMM, a benchmark to test the robustness of large multimodal models (LMMs) against various image style changes, finding that LMMs struggle with style shifts and that performance in one style doesn't predict performance in others; they also propose a style-prediction prompting method to improve LMM performance.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2503.09348v1'>MOAT: Evaluating LMMs for Capability Integration and Instruction
+  Grounding</a></td><td>The authors created MOAT, a benchmark of complex vision-language tasks to evaluate the gap between large multimodal models (LMMs) and human performance.  Their results showed a large performance gap, with humans achieving 82.7% accuracy compared to the best LMM at 38.8%, highlighting specific LMM weaknesses in areas like counting and instruction grounding.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/math/0611846v1'>DRP scheme optimization</a></td><td>The authors developed a new data recovery process (DRP) scheme to reduce errors from finite difference approximations using an equivalent matrix equation.  The result is a more accurate DRP.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2404.18203v2'>LMM-PCQA: Assisting Point Cloud Quality Assessment with LMM</a></td><td>The authors integrated large multi-modality models (LMMs) into point cloud quality assessment (PCQA) for the first time, using text descriptions of quality labels and structural features to train the model.  Their experiments showed that this approach effectively improved the accuracy of point cloud quality assessment.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2405.13426v1'>A New Era in Human Factors Engineering: A Survey of the Applications and
+  Prospects of Large Multimodal Models</a></td><td>The authors reviewed literature on Large Multimodal Models (LMMs) in human factors research to explore their applications, challenges, and future potential.  Their novel review method highlighted LMM uses in accident analysis, human modeling, and intervention design, identifying both opportunities and challenges in integrating AI and human factors.
+</td></tr></table><br><h3>Mamba</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/2504.07654v1'>ms-Mamba: Multi-scale Mamba for Time-Series Forecasting</a></td><td>To improve time-series forecasting, the authors developed a new architecture called Multi-scale Mamba (ms-Mamba) that processes data at multiple time scales, unlike existing methods.  Experiments showed that ms-Mamba outperforms current state-of-the-art models.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2410.05355v1'>Falcon Mamba: The First Competitive Attention-free 7B Language Model</a></td><td>The authors developed Falcon Mamba 7B, a new large language model using a novel Mamba architecture and trained on a massive dataset, to test the performance of pure Mamba models against leading Transformer-based models.  Results show Falcon Mamba 7B outperforms many competing models, demonstrating that a pure Mamba architecture can achieve state-of-the-art performance and offer advantages in speed and memory efficiency.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2409.17165v1'>Mamba for Scalable and Efficient Personalized Recommendations</a></td><td>The authors developed FT-Mamba, a more efficient recommendation system model using Mamba layers instead of Transformers, to improve scalability in large datasets.  Experiments on three datasets showed FT-Mamba matched or exceeded the performance of a Transformer-based model while significantly improving computational efficiency.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2411.03855v3'>MambaPEFT: Exploring Parameter-Efficient Fine-Tuning for Mamba</a></td><td>The authors explored parameter-efficient fine-tuning (PEFT) methods for Mamba, a state-space model alternative to Transformers, adapting and creating new methods specific to Mamba's architecture.  Their results showed that PEFT is even more effective for Mamba than for Transformers, leading to a novel framework that outperforms existing approaches.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2407.15714v1'>Mamba meets crack segmentation</a></td><td>The authors designed a new Mamba module, CrackMamba, for improved crack segmentation in images, addressing limitations of existing CNN and Transformer-based methods.  CrackMamba consistently outperformed other Mamba modules in experiments, improving accuracy while reducing computational costs.
+</td></tr></table><br><h3>Nlp</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/2101.10848v1'>Spark NLP: Natural Language Understanding at Scale</a></td><td>The authors describe Spark NLP, a scalable and widely adopted NLP library built on Apache Spark, offering numerous pre-trained models for various NLP tasks.  Their analysis shows its significant growth and widespread use, particularly in healthcare, highlighting its performance and ease of use in distributed environments.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2408.05664v1'>Training an NLP Scholar at a Small Liberal Arts College: A Backwards
+  Designed Course Proposal</a></td><td>The authors identified two ideal student profiles for NLP courses: engineers and scholars, differing in their focus on application versus critical analysis and communication.  They then designed course components specifically to cultivate the skills of NLP scholars, reflecting their institution's strengths and student demographics.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2407.09861v3'>Towards Systematic Monolingual NLP Surveys: GenA of Greek NLP</a></td><td>The authors developed a new methodology for conducting comprehensive monolingual NLP surveys to better understand and improve NLP resources for under-resourced languages.  They applied this methodology to Greek NLP, providing a detailed overview of its current state, available resources, and challenges.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2304.02746v1'>Sejarah dan Perkembangan Teknik Natural Language Processing (NLP) Bahasa
+  Indonesia: Tinjauan tentang sejarah, perkembangan teknologi, dan aplikasi NLP
+  dalam bahasa Indonesia</a></td><td>The authors reviewed the history and current state of Indonesian Natural Language Processing (NLP), covering its technologies, applications (like sentiment analysis and machine translation), and challenges.  They identified opportunities for future development, including improved methods and broader applications, to advance Indonesian NLP research.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2412.08520v1'>GR-NLP-TOOLKIT: An Open-Source NLP Toolkit for Modern Greek</a></td><td>The authors created GR-NLP-TOOLKIT, an open-source NLP toolkit for Modern Greek, achieving state-of-the-art results on five core NLP tasks using pre-trained Transformers.  This toolkit is freely available and easily accessible via Python, HuggingFace, and a public API.
+</td></tr></table><br><h3>Nvidia</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/1803.04014v1'>NVIDIA Tensor Core Programmability, Performance & Precision</a></td><td>The authors evaluated three methods for programming NVIDIA Tensor Cores, a specialized unit for matrix multiplication, to assess their performance and precision loss.  They found that Tensor Cores achieved significantly faster computation (up to 83 TFLOPS in mixed precision) compared to single and half precision, demonstrating the potential for substantial performance gains in high-performance computing applications despite some precision loss.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2305.10553v1'>Optimization and Portability of a Fusion OpenACC-based FORTRAN HPC Code
+  from NVIDIA to AMD GPUs</a></td><td>The authors ported a fusion simulation code (CGYRO) from NVIDIA to AMD GPUs to adapt to the changing landscape of HPC hardware, encountering unexpected performance differences.  After optimization, they achieved comparable performance on AMD GPUs and even saw minor speed improvements on NVIDIA GPUs.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2312.02741v3'>Part-time Power Measurements: nvidia-smi's Lack of Attention</a></td><td>The authors investigated the accuracy of NVIDIA GPU power readings obtained via nvidia-smi, using micro-benchmarks on diverse GPU models.  They found significant inaccuracies, particularly undersampling in newer GPUs, leading to substantial energy consumption miscalculations and proposed mitigation strategies to improve measurement accuracy by up to 65%.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2307.14860v1'>Quantum Computer Simulations at Warp Speed: Assessing the Impact of GPU
+  Acceleration</a></td><td>The authors benchmarked the performance of GPU and multi-GPU systems using Qiskit Aer, a quantum computer simulator, to determine if they could speed up simulations.  They found that GPUs offered significant speed improvements (up to 14x over CPUs), with cuQuantum outperforming the default Thrust backend, though data transfer between the GPU and host became a bottleneck in multi-GPU simulations.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2407.11488v1'>Bringing Auto-tuning to HIP: Analysis of Tuning Impact and Difficulty on
+  AMD and Nvidia GPUs</a></td><td>Error: Unable to get response, status code: 429</td></tr></table><br><h3>Transformer</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/gr-qc/0612006v1'>The Xi-transform for conformally flat space-time</a></td><td>Error: Unable to get response, status code: 429</td></tr><tr><td><a href='http://arxiv.org/pdf/1310.1984v2'>Multiple basic hypergeometric transformation formulas arising from the
+  balanced duality transformation</a></td><td>Error: Unable to get response, status code: 429</td></tr><tr><td><a href='http://arxiv.org/pdf/1605.08683v1'>The Fourier and Hilbert transforms under the Bargmann transform</a></td><td>Error: Unable to get response, status code: 429</td></tr><tr><td><a href='http://arxiv.org/pdf/1403.2188v1'>Identities for the Ln-transform, the L2n-transform and the P2n transform
+  and their applications</a></td><td>Error: Unable to get response, status code: 429</td></tr><tr><td><a href='http://arxiv.org/pdf/2204.07780v1'>Towards Lightweight Transformer via Group-wise Transformation for
+  Vision-and-Language Tasks</a></td><td>Error: Unable to get response, status code: 429</td></tr></table><br><h3>Vision Transformer</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        <tr><td><a href='http://arxiv.org/pdf/2204.07780v1'>Towards Lightweight Transformer via Group-wise Transformation for
+  Vision-and-Language Tasks</a></td><td>The authors developed LW-Transformer, a lightweight version of the Transformer network, to reduce its computational cost and parameter count while maintaining performance.  Experiments on vision-and-language tasks showed that LW-Transformer achieves competitive results with significantly fewer parameters and computations than standard Transformers.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2305.09880v4'>A survey of the Vision Transformers and their CNN-Transformer based
+  Variants</a></td><td>This survey categorizes and analyzes hybrid vision transformer architectures—which combine convolutional neural networks and transformers—because these models show promise in computer vision but lack systematic understanding.  The authors identify key features of these hybrid models and highlight their superior performance across various computer vision tasks.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2205.10660v1'>Vision Transformers in 2022: An Update on Tiny ImageNet</a></td><td>This paper evaluated the performance of several vision transformer models (ViT, DeiT, CaiT, Swin Transformer) on the Tiny ImageNet dataset, addressing a gap in existing research.  Swin Transformer achieved state-of-the-art results, reaching 91.35% validation accuracy.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2307.09402v1'>Study of Vision Transformers for Covid-19 Detection from Chest X-rays</a></td><td>This study used several vision transformer models with transfer learning to detect COVID-19 from chest X-rays, achieving 98.75% to 99.5% accuracy; this demonstrates that vision transformers outperform other methods for rapid and accurate COVID-19 detection.
+</td></tr><tr><td><a href='http://arxiv.org/pdf/2402.05557v1'>On Convolutional Vision Transformers for Yield Prediction</a></td><td>The authors evaluated the Convolutional Vision Transformer (CvT) for crop yield prediction using remote sensing data, comparing its performance to established methods like XGBoost and CNNs.  Although CvT performed less well than these existing methods, the study suggests that Transformers hold promise for future improvements in yield prediction.
+</td></tr></table><br></body></html>

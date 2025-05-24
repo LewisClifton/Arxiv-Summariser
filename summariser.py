@@ -4,9 +4,8 @@ import xml.etree.ElementTree as ET
 import time
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import argparse
 
-# Set up your Gemini API key
-GEMINI_API_KEY = ""
 
 def fetch_abstract(arxiv_url):
     # Fetch the arXiv page content using requests
@@ -29,7 +28,7 @@ def fetch_abstract(arxiv_url):
     else:
         return "Error: Abstract not found."
 
-def summarize_with_gemini(abstract_text):
+def summarise_with_gemini(abstract_text):
     # Set up the API endpoint for Gemini
     url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_API_KEY
     
@@ -41,7 +40,7 @@ def summarize_with_gemini(abstract_text):
     data = {
         "contents": [{
             "parts": [{
-                "text": f"Summarize the following abstract in 1-2 simple sentences. Focus on what the authors did, why, and the results: \n\n{abstract_text}"
+                "text": f"summarise the following abstract in 1-2 simple sentences. Focus on what the authors did, why, and the results: \n\n{abstract_text}"
             }]
         }]
     }
@@ -64,24 +63,24 @@ def summarize_with_gemini(abstract_text):
 
 def fetch_papers_for_date_range(keyword, start_date, end_date, max_results):
     papers = []
-    query = f'all:"{keyword}"'
-    query_url = f"http://export.arxiv.org/api/query?search_query=({query})+AND+submittedDate:[{start_date}+TO+{end_date}]&start=0&max_results={max_results}"
-    
-    # Fetch papers for this keyword and date range
+    # Convert keyword to query-friendly format
+    query = f'all:{keyword.replace(" ", "+")}'
+    query_url = f"http://export.arxiv.org/api/query?search_query={query}&start=0&max_results={max_results}"
+
     response = requests.get(query_url)
     if response.status_code != 200:
-        print(f"Error: Unable to fetch papers for keyword '{keyword}' from {start_date} to {end_date}, status code: {response.status_code}")
+        print(f"Error: Unable to fetch papers for keyword '{keyword}', status code: {response.status_code}")
         return papers
 
-    # Parse the XML response to get the papers
     root = ET.fromstring(response.content)
     for entry in root.findall('{http://www.w3.org/2005/Atom}entry'):
         title = entry.find('{http://www.w3.org/2005/Atom}title').text.strip()
         summary = entry.find('{http://www.w3.org/2005/Atom}summary').text.strip()
         link = entry.find('{http://www.w3.org/2005/Atom}link[@title="pdf"]').attrib['href']
         papers.append({'title': title, 'summary': summary, 'link': link, 'keyword': keyword})
-    
+
     return papers
+
 
 def fetch_papers(keywords, start_date, end_date, max_results_per_keyword):
     papers = []
@@ -115,37 +114,53 @@ def fetch_papers(keywords, start_date, end_date, max_results_per_keyword):
     for paper in papers:
         keyword_totals[paper['keyword']] += 1
     
-    # Print the total number of documents found for each keyword
-    print("\nTotal documents found per keyword:")
-    for keyword, total in keyword_totals.items():
-        print(f"{keyword}: {total} documents")
+    # # print the total number of documents found for each keyword
+    # print("\nTotal documents found per keyword:")
+    # #for keyword, total in keyword_totals.items():
+    #     print(f"{keyword}: {total} documents")
     
     return papers
 
-# Open the result file to store the summaries
-with open("result.txt", "w") as result_file:
-    # Prompt for user input
-    keywords = input("Enter keywords separated by commas: ").strip().split(',')
-    start_date = input("Enter start date (YYYY-MM-DD): ").strip()
-    end_date = input("Enter end date (YYYY-MM-DD): ").strip()
-    max_results_per_keyword = int(input("Enter the number of results per keyword: ").strip())
 
-    # Fetch papers based on keywords, date range, and max results per keyword
-    papers = fetch_papers(keywords, start_date, end_date, max_results_per_keyword)
-    
+def do_summary(api_key, keywords, start_date, end_date, max_results, output_path="result.txt"):
+    global GEMINI_API_KEY
+    GEMINI_API_KEY = api_key
+
+    papers = fetch_papers(keywords, start_date, end_date, max_results)
+
+    grouped = {}
     for paper in papers:
-        print(f"Fetching abstract for: {paper['title']}")
-        
-        # Fetch the abstract
-        abstract = paper['summary']
-        if not abstract.startswith("Error"):
-            # Summarize the abstract using Gemini
-            summary = summarize_with_gemini(abstract)
-            # summary = 'xyz'
-            result_file.write(f"Keyword: {paper['keyword']}\nTitle: {paper['title']}\nLink: {paper['link']}\nSummary: {summary}\n\n")
-            print(f"Summary for {paper['title']}:\n{summary}\n")
-        else:
-            result_file.write(f"Keyword: {paper['keyword']}\nTitle: {paper['title']}\nLink: {paper['link']}\nSummary: Error fetching abstract\n\n")
-            print(f"Error fetching abstract for {paper['title']}\n")
-        # Add a 2-seconds delay between each summary request
-        time.sleep(2)
+        grouped.setdefault(paper['keyword'], []).append(paper)
+
+    html_output = "<html><body style='font-family:Arial, sans-serif;'>"
+    html_output += f"<h2>Daily arXiv Summary for {start_date}</h2>"
+
+    for keyword in sorted(grouped.keys()):
+        html_output += f"<h3>{keyword.title()}</h3>"
+        html_output += """
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="text-align: left;">Title</th>
+                <th style="text-align: left;">Summary</th>
+            </tr>
+        """
+
+        for paper in grouped[keyword]:
+            abstract = paper['summary']
+            if not abstract.startswith("Error"):
+                summary = summarise_with_gemini(abstract)
+            else:
+                summary = "Error fetching abstract."
+            title_link = f"<a href='{paper['link']}'>{paper['title']}</a>"
+            html_output += f"<tr><td>{title_link}</td><td>{summary}</td></tr>"
+
+            time.sleep(7)
+
+        html_output += "</table><br>"
+
+    html_output += "</body></html>"
+
+    with open(output_path, "w") as f:
+        f.write(html_output)
+
+    return len(papers)
