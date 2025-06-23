@@ -1,8 +1,6 @@
 # ArXiv Paper Email Summaries
 
-This repository produces daily email updates of yesterday's arXiv papers that use a specific selection of keywords, using a summary from Gemini.
-
-This is a fork of [this](https://github.com/Shaier/arxiv_summarizer) by @Shaier. Thanks for your work.
+This is a fork of [this](https://github.com/Shaier/arxiv_summarizer) by @Shaier - Thanks for your work - introducing scheduled email updates.
 
 ## Prerequisites
 - Python 3.11
